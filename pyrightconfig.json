@@ -1,0 +1,32 @@
+{
+  "include": [
+    "datapizza-ai-core",
+    "datapizza-ai-clients",
+    "datapizza-ai-embedders",
+    "datapizza-ai-modules",
+    "datapizza-ai-vectorstores",
+    "datapizza-ai-cache",
+    "datapizza-ai-tools",
+    "datapizza-ai-eval"
+  ],
+  "exclude": [
+    "**/tests",
+    "build",
+    "**/voice"
+  ],
+  "extraPaths": [
+    ".",
+    "datapizza-ai-vectorstores/datapizza-ai-vectorstores-pgvector"
+  ],
+  "reportMissingImports": true,
+  "typeCheckingMode": "basic",
+  "pythonVersion": "3.11",
+  "venvPath": ".",
+  "venv": ".venv",
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "python": ".venv/Scripts/python.exe"
+    }
+  ]
+}

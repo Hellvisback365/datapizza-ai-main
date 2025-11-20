@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datapizza-ai-vectorstores-pgvector"
+version = "0.1.0"
+description = "PostgreSQL (pgvector) integration for datapizza-ai"
+dependencies = [
+    "datapizza-ai-core",
+    "psycopg[binary]",
+    "pgvector",
+    "psycopg-pool",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["datapizza*"]
