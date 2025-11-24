@@ -7,8 +7,9 @@ try:
     import psycopg
     from psycopg import sql
 except ImportError:
-    psycopg = None
-    sql = None  # type: ignore
+    raise ImportError(
+        "Missing dependencies! Install: pip install psycopg[binary] pgvector psycopg-pool"
+    )
 
 try:
     from pgvector.psycopg import register_vector
@@ -54,11 +55,6 @@ class PGVectorStore(Vectorstore):
             max_size (int, optional): Maximum pool size. Defaults to 10.
             **kwargs: Additional keyword arguments.
         """
-        if psycopg is None:
-            raise ImportError(
-                "Missing dependencies! Install: pip install psycopg[binary] pgvector psycopg-pool"
-            )
-
         # Store connection parameters for lazy initialization
         self.connection_string = connection_string
         self.schema = schema

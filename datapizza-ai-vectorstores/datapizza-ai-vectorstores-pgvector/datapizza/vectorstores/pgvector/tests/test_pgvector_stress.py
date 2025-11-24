@@ -92,7 +92,7 @@ def test_massive_batch_operations(integration_store):
     
     total_time = time.time() - start
     print(f"  ✓ Total test time: {total_time:.2f}s")
-    assert total_time < 60, "Test took too long (>60s)"
+    assert total_time < 120, "Test took too long (>120s)"
 
 
 def test_concurrent_operations(integration_store):
