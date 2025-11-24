@@ -175,7 +175,7 @@ chunks = [
     )
     for i in range(100)
 ]
-store.add(chunks, collection_name="my_documents", batch_size=50)
+store.add(chunks, collection_name="my_documents") # batch_size is currently reserved for future use
 ```
 
 **Note:** The `add` method automatically handles duplicates via upsert logic—existing documents with the same ID will be replaced.
@@ -370,14 +370,14 @@ PGVectorStore(
 | Method | Description | Async Version |
 |--------|-------------|---------------|
 | `create_collection(collection_name, vector_config)` | Create a new collection | N/A |
-| `add(chunk, collection_name, batch_size)` | Add documents | `a_add()` |
+| `add(chunk, collection_name, batch_size)` | Add documents (batch_size unused) | `a_add()` |
 | `search(collection_name, query_vector, k, filters)` | Search similar documents | `a_search()` |
 | `remove(collection_name, ids)` | Remove documents by ID | `a_remove()` |
 | `get_collections()` | List all collections | `a_get_collections()` |
 | `dump_collection(collection_name, page_size, with_vectors)` | Export collection data | N/A |
 | `delete_collection(collection_name)` | Drop entire collection | N/A |
 | `retrieve(collection_name, ids)` | Get specific documents | N/A |
-| `update(collection_name, payload, points)` | Update metadata | N/A |
+| `update(collection_name, payload, points)` | Update metadata for specific IDs | N/A |
 | `close()` | Close sync pool | `aclose()` |
 
 ---
